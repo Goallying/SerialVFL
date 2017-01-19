@@ -80,6 +80,10 @@
 @property (nonatomic ,copy)UIView * (^centerXTo)(UIView * ,CGFloat offset) ;
 @property (nonatomic ,copy)UIView * (^centerYTo)(UIView * ,CGFloat offset) ;
 
-
+/**
+ *左基准线
+ */
+@property (nonatomic ,copy)UIView * (^leftBaselineTo)(UIView *) ;
+@property (nonatomic ,copy)UIView * (^rightBaselineTo)(UIView *) ;
 
 @end

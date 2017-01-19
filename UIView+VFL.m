@@ -38,6 +38,9 @@ static void * heightConstraintKey = "heightConstraintKey";
 @dynamic centerXTo;
 @dynamic centerYTo;
 
+@dynamic leftBaselineTo;
+@dynamic rightBaselineTo;
+
 #pragma mark -- Top Margin
 
 -(UIView *(^)(UIView *, CGFloat))TopTo{
@@ -290,6 +293,25 @@ static void * heightConstraintKey = "heightConstraintKey";
     return ^(UIView * centerYView , CGFloat offset){
         
         [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:centerYView attribute:NSLayoutAttributeCenterY multiplier:1 constant:offset]];
+        
+        return self;
+    };
+}
+#pragma  mark -- BaseLine Margin
+-(UIView *(^)(UIView *))leftBaselineTo{
+    
+    return ^(UIView * baseLineview){
+        
+        [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:baseLineview attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
+        
+        return self;
+    };
+}
+-(UIView *(^)(UIView *))rightBaselineTo{
+    
+    return ^(UIView * baseLineview){
+        
+        [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:baseLineview attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
         
         return self;
     };
