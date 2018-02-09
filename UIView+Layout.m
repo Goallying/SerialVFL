@@ -321,6 +321,15 @@ static void * heightConstraintKey = "heightConstraintKey";
     }
     return maker ;
 }
+- (CGRect)rectGenerateFromAutoLayout{
+    
+    CGRect rct = CGRectMake(self.left, self.top, self.width, self.height);
+    if (CGRectEqualToRect(rct, CGRectZero)) {
+        [self.superview layoutIfNeeded];
+        return CGRectMake(self.left, self.top, self.width, self.height);
+    }
+    return rct ;
+}
 
 -(NSLayoutConstraint *)topConstraint{
     

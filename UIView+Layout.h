@@ -93,7 +93,8 @@
 
 //layout Maker
 @property  (nonatomic,strong,readonly)LayoutMaker * maker  ;
-
+//to use this method , you must make sure the position(frame) of a view's root superview is accurate. for example :[A addSubView:B] , you can't use B.rectGenerateFromAutoLayout ,it will not work. you must add the code like:[self.view addSubview:A].
+@property (nonatomic ,assign ,readonly)CGRect rectGenerateFromAutoLayout ;
 
 //specific constraint, you should implement what you need.
 @property (nonatomic ,strong, readonly) NSLayoutConstraint * topConstraint ;
