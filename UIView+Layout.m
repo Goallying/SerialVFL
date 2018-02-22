@@ -323,9 +323,11 @@ static void * heightConstraintKey = "heightConstraintKey";
 }
 - (CGRect)rectGenerateFromAutoLayout{
     
-    CGRect rct = CGRectMake(self.left, self.top, self.width, self.height);
-    if (CGRectEqualToRect(rct, CGRectZero)) {
-        [self.superview layoutIfNeeded];
+    static BOOL generated = NO ;
+    if (!generated) {
+        generated = YES ;
+//        [self.superview layoutIfNeeded];
+//        [self.rootSuperview layoutIfNeeded]; imp manually.
         return CGRectMake(self.left, self.top, self.width, self.height);
     }
     return rct ;
