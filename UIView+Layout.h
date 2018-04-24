@@ -73,6 +73,7 @@
 @property (nonatomic ,copy ,readonly)LayoutMaker * (^heightGraterThan)(CGFloat)  ;
 @property (nonatomic ,copy ,readonly)LayoutMaker * (^heightLessThan)(CGFloat) ;
 @property (nonatomic ,copy ,readonly)LayoutMaker * (^heightRange)(CGFloat min , CGFloat max) ;
+@property  (nonatomic,copy ,readonly)LayoutMaker * (^heightEqualToView)(UIView * v)  ;
 
 /**
  *中心 , offset 可正可负

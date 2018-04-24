@@ -257,7 +257,16 @@ static void * heightConstraintKey = "heightConstraintKey";
         return self;
     };
 }
-
+@dynamic heightEqualToView ;
+- (LayoutMaker *(^)(UIView *))heightEqualToView{
+    
+    return ^(UIView * v){
+        
+        [self.targetView.superview addConstraint:[NSLayoutConstraint constraintWithItem:self.targetView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:v attribute:NSLayoutAttributeHeight multiplier:1 constant:0]];
+        return self ;
+    };
+    
+}
 #pragma mark -
 #pragma mark --  Center Margin
 @dynamic centerXTo;
